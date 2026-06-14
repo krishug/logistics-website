@@ -6,3 +6,4 @@ data.db-wal
 *.log
 .env
 .env.local
+.vercel
