@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>仓库端 | 速达物流管理系统</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="mobile-topbar">
+      <button class="icon-btn" id="sidebarToggle">☰</button>
+      <div><strong>仓库端</strong><span>速达物流管理系统</span></div>
+    </div>
+    <div class="workbench">
+      <div class="hero-strip">
+        <div>
+          <div class="route">入库 · 出库 · 库存</div>
+          <h1>仓库端</h1>
+        </div>
+        <div class="hero-stat">
+          <strong>--</strong>
+          <span>今日入库</span>
+        </div>
+      </div>
+      <div class="layout">
+        <nav class="side-nav" id="sideNav">
+          <button class="active">入库管理</button>
+          <button>出库管理</button>
+          <button>库存查询</button>
+          <button>扫码装车</button>
+          <button>到仓确认</button>
+          <button class="nav-logout" id="logoutBtn">退出登录</button>
+        </nav>
+        <main class="main-stack">
+          <div class="panel">
+            <div class="panel-title"><h2>入库管理</h2></div>
+            <div style="padding:32px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:8px;">
+              <p style="font-size:18px;font-weight:700;margin-bottom:8px;">仓库端功能开发中</p>
+              <p>此页面为占位页面，后续将实现入库登记、扫码管理、库存查询等功能。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      var auth = window.DmAuth;
+      if (!auth.requireRole('warehouse')) return;
+
+      document.getElementById('logoutBtn').addEventListener('click', function () {
+        auth.clearAuth();
+        location.href = '/login.html';
+      });
+
+      document.getElementById('sidebarToggle').addEventListener('click', function () {
+        var nav = document.getElementById('sideNav');
+        nav.style.display = nav.style.display === 'none' ? 'grid' : 'none';
+      });
+    })();
+  </script>
+</body>
+</html>
